@@ -5,11 +5,17 @@
   "repository": "git@github.com:Hexellate/Hexellate.github.io.git",
   "author": "Daniel Nichols <info.danielnichols@gmail.com>",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "@types/node": "^14.0.25",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@types/webpack": "^4.41.21",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "cache-loader": "^4.1.0",
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.6.0",
@@ -36,6 +42,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.10.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
