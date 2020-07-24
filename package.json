@@ -3,5 +3,13 @@
   "version": "0.1.0",
   "main": "index.js",
   "repository": "git@github.com:Hexellate/Hexellate.github.io.git",
-  "author": "Daniel Nichols <info.danielnichols@gmail.com>"
+  "author": "Daniel Nichols <info.danielnichols@gmail.com>",
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  }
 }
