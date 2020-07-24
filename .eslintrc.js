@@ -37,8 +37,8 @@ module.exports = {
         'plugin:import/typescript',
         'plugin:@typescript-eslint/recommended',
         './config/eslint/syntax.ts.js',
-        './config/eslint/style.ts.js',
-        './config/eslint/react.ts.js',
+        // './config/eslint/style.ts.js',
+        // './config/eslint/react.ts.js',
       ],
       plugins: [
         '@typescript-eslint',
