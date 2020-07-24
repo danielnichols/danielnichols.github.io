@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "target": "esnext",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "~src/*": [
+        "./src/*"
+      ],
+      "~components/*": [
+        "./src/components/*"
+      ],
+      "~utils/*": [
+        "./src/utils/*"
+      ],
+      "~utils": [
+        "./src/utils"
+      ],
+      "~assets/*": [
+        "./src/assets/*"
+      ],
+    },
+    "lib": [
+      "dom",
+      "esnext"
+    ]
+  },
+  "include": [
+    "src"
+  ]
+}
