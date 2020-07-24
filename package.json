@@ -1,9 +1,15 @@
 {
-  "name": "Hexellate.github.io",
+  "name": "Daniel-Nichols-Website",
   "version": "0.1.0",
   "main": "index.js",
   "repository": "git@github.com:Hexellate/Hexellate.github.io.git",
   "author": "Daniel Nichols <info.danielnichols@gmail.com>",
+  "dependencies": {
+    "@babel/runtime": "^7.10.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.10.5",
@@ -49,10 +55,5 @@
     "webpack-subresource-integrity": "^1.4.1",
     "webpackbar": "^4.0.0"
   },
-  "dependencies": {
-    "@babel/runtime": "^7.10.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
-  }
+  "scripts": {}
 }
