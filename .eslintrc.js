@@ -40,9 +40,7 @@ module.exports = {
         // './config/eslint/style.ts.js',
         // './config/eslint/react.ts.js',
       ],
-      plugins: [
-        '@typescript-eslint',
-      ],
+      plugins: ['@typescript-eslint'],
       rules: {
         '@typescript-eslint/no-var-requires': ['warn'],
       },
@@ -57,9 +55,7 @@ module.exports = {
     },
 
     { // Only use webpack resolvers for source files
-      files: [
-        'src/**',
-      ],
+      files: ['src/**'],
       settings: {
         'import/resolver': {
           webpack: {
@@ -68,5 +64,5 @@ module.exports = {
         },
       },
     },
-  ]
-}
+  ],
+};

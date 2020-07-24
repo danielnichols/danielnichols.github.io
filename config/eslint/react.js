@@ -11,14 +11,16 @@ module.exports = {
     'react/jsx-indent': ['warn'],
     'react/jsx-indent-props': ['warn'],
     'react/jsx-max-props-per-line': ['warn'],
-    'react/jsx-one-expression-per-line': ['warn', {'allow': 'single-child'}],
+    'react/jsx-one-expression-per-line': ['warn', { allow: 'single-child' }],
     'react/jsx-tag-spacing': ['warn'],
     'react/jsx-wrap-multilines': ['warn'],
     'react/destructuring-assignment': 'off',
     'react/prop-types': ['error'],
-    'jsx-a11y/label-has-associated-control': ['error', {
-      assert: 'either',
-      depth: 25,
-    }],
-  }
-}
+    'jsx-a11y/label-has-associated-control': [
+      'error', {
+        assert: 'either',
+        depth: 25,
+      },
+    ],
+  },
+};

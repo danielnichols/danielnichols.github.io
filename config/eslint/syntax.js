@@ -6,34 +6,36 @@ module.exports = {
     'import/extensions': ['off'],
     'import/prefer-default-export': ['off'],
     'import/first': ['error'],
-    'import/order': ['warn', {
-      groups: ['builtin', 'external', 'internal', ['parent', 'sibling']],
-      alphabetize: { order: 'asc' },
-      pathGroups: [
-        {
-          pattern: '~src/**',
-          group: 'internal',
-        },
-        {
-          pattern: '~components/**',
-          group: 'internal',
-        },
-        {
-          pattern: '~utils/**',
-          group: 'internal',
-        },
-        {
-          pattern: '~utils',
-          group: 'internal',
-        },
-        {
-          pattern: '~assets/**',
-          group: 'index',
-          position: 'before',
-        },
-      ],
-      pathGroupsExcludedImportTypes: ['builtin'],
-      'newlines-between': 'always',
-    }],
-  }
-}
+    'import/order': [
+      'warn', {
+        groups: ['builtin', 'external', 'internal', ['parent', 'sibling']],
+        alphabetize: { order: 'asc' },
+        pathGroups: [
+          {
+            pattern: '~src/**',
+            group: 'internal',
+          },
+          {
+            pattern: '~components/**',
+            group: 'internal',
+          },
+          {
+            pattern: '~utils/**',
+            group: 'internal',
+          },
+          {
+            pattern: '~utils',
+            group: 'internal',
+          },
+          {
+            pattern: '~assets/**',
+            group: 'index',
+            position: 'before',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
+        'newlines-between': 'always',
+      },
+    ],
+  },
+};
