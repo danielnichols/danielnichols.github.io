@@ -3,11 +3,13 @@ const path = require('path');
 
 const CopyPlugin = require('copy-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const webpack = require('webpack');
+const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackBarPlugin = require('webpackbar');
 require('dotenv').config(); // Add vars from .env file to process.env
@@ -279,6 +281,17 @@ const baseConfig = {
       filename: 'static/css/[name].[contenthash:8].css',
       chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
     }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: path.join(paths.appPublic, 'index.html'),
+    }),
+    new InterpolateHtmlPlugin(HtmlWebpackPlugin, {
+      PUBLIC_URL: paths.publicPath,
+    }),
+    new webpack.EnvironmentPlugin([
+      'NODE_ENV',
+      'DEBUG',
+    ]),
   ],
   node: {
     module: 'empty',
