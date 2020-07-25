@@ -67,5 +67,26 @@
     "webpack-subresource-integrity": "^1.4.1",
     "webpackbar": "^4.0.0"
   },
-  "scripts": {}
+  "scripts": {
+    "===== Alias Commands ============================================": "",
+    "start": "yarn start:dev",
+    "build": "yarn build:prod",
+    "===== Main Commands =============================================": "",
+    "start:prod": "cross-env NODE_ENV=production echo this script has not yet been added",
+    "start:dev": "cross-env NODE_ENV=development echo this script has not yet been added",
+    "build:prod": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.config.prod.js --colors",
+    "build:dev": "cross-env NODE_ENV=development webpack --config ./config/webpack/webpack.config.dev.js --colors",
+    "lint": "eslint .",
+    "deploy": "",
+    "===== Technical Commands ========================================": "",
+    "clean": "yarn clean:build && yarn clean:cache",
+    "clean:build": "rimraf build",
+    "clean:cache": "yarn clean:cache:babel && yarn clean:cache:eslint && yarn clean:cache:webpack && yarn clean:cache:terser",
+    "clean:cache:babel": "rimraf node_modules/.cache/babel-loader",
+    "clean:cache:eslint": "rimraf node_modules/.cache/eslint-loader",
+    "clean:cache:webpack": "rimraf node_modules/.cache/cache-loader",
+    "clean:cache:terser": "rimraf node_modules/.cache/terser-webpack-plugin",
+    "===== pre/post Commands =========================================": "",
+    "predeploy": ""
+  }
 }
