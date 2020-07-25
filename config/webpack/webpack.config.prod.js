@@ -2,20 +2,20 @@ const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
 const FailOnErrorsPlugin = require('fail-on-errors-webpack-plugin');
 const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const SriPlugin = require('webpack-subresource-integrity');
 
 const baseConfig = require('./webpack.config.base');
 
-module.exports = merge.smart(baseConfig.base, {
+module.exports = merge(baseConfig.base, {
   mode: 'production',
   bail: true,
 
   devtool: baseConfig.shouldUseSourceMap ? 'source-map' : false,
 
   output: {
-    filename: 'static/js/[name].[contenthash:8].js',
-    chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
+    filename: 'static/js/[name].[contenthash].js',
+    chunkFilename: 'static/js/[name].[contenthash].chunk.js',
   },
   module: {
     rules: [

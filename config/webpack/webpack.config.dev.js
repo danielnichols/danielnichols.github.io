@@ -3,11 +3,11 @@ const path = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const baseConfig = require('./webpack.config.base');
 
-module.exports = merge.smart(baseConfig.base, {
+module.exports = merge(baseConfig.base, {
   mode: 'development',
   devtool: 'inline-source-map',
   output: {

@@ -28,7 +28,7 @@ const paths = {
   entry: './src/index.tsx',
   buildOutput: path.join(__dirname, '..', '..', 'build'),
   publicPath: process.env.CDN_URL || '/',
-  tsConfig: resolveApp('tsconfig.build.json'),
+  tsConfig: resolveApp('tsconfig.json'),
   recordsPath: resolveApp('node_modules/.cache/webpack-records/records.json'),
 };
 

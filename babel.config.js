@@ -17,12 +17,11 @@ const presets = [
     },
   ],
   '@babel/preset-react',
-  '@emotion/babel-preset-css-prop',
-]
+];
 
 const plugins = [
   '@babel/plugin-syntax-dynamic-import',
   'transform-react-remove-prop-types',
-]
+];
 
 module.exports = { presets, plugins };
