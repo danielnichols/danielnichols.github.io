@@ -84,11 +84,12 @@
     "===== Technical Commands ========================================": "",
     "clean": "yarn clean:build && yarn clean:cache",
     "clean:build": "rimraf build",
-    "clean:cache": "yarn clean:cache:babel && yarn clean:cache:eslint && yarn clean:cache:webpack && yarn clean:cache:terser",
+    "clean:cache": "yarn clean:cache:babel && yarn clean:cache:eslint && yarn clean:cache:webpack && yarn clean:cache:terser && yarn clean:cache:gh-pages",
     "clean:cache:babel": "rimraf node_modules/.cache/babel-loader",
     "clean:cache:eslint": "rimraf node_modules/.cache/eslint-loader",
     "clean:cache:webpack": "rimraf node_modules/.cache/cache-loader",
     "clean:cache:terser": "rimraf node_modules/.cache/terser-webpack-plugin",
+    "clean:cache:gh-pages": "rimraf node_modules/.cache/gh-pages",
     "===== pre/post Commands =========================================": "",
     "predeploy": "yarn build:prod"
   }
