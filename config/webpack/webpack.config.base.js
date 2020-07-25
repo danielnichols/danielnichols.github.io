@@ -38,11 +38,11 @@ const baseConfig = {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
     alias: {
-      '@src': path.resolve(__dirname, '../../src'),
-      '@components': path.resolve(__dirname, '../../src/components'),
-      '@utils': path.resolve(__dirname, '../../src/utils'),
-      '@assets': path.resolve(__dirname, '../../src/assets'),
-      '@public': path.resolve(__dirname, '../../public'),
+      '~src': path.resolve(__dirname, '../../src'),
+      '~components': path.resolve(__dirname, '../../src/components'),
+      '~utils': path.resolve(__dirname, '../../src/utils'),
+      '~assets': path.resolve(__dirname, '../../src/assets'),
+      '~public': path.resolve(__dirname, '../../public'),
 
       // Ensure that lodash isn't included twice
       // 'lodash-es': 'lodash',
