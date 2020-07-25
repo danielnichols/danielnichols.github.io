@@ -248,8 +248,12 @@ const baseConfig = {
   plugins: [
     new WebpackBarPlugin(),
     new ForkTsCheckerWebpackPlugin({
-      tsconfig: paths.tsConfig,
-      checkSyntacticErrors: true,
+      typescript: {
+        configFile: paths.tsConfig,
+        diagnosticOptions: {
+          syntactic: true,
+        },
+      },
     }),
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
@@ -270,13 +274,17 @@ const baseConfig = {
         };
       },
     }),
-    new CopyPlugin([
-      {
-        from: 'public/*',
-        to: '[name].[ext]',
-        ignore: ['index.html'],
-      },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: 'public/*',
+          to: '[name].[ext]',
+          globOptions: {
+            ignore: ['index.html'],
+          },
+        },
+      ],
+    }),
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css',
       chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
