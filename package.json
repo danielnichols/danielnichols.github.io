@@ -4,6 +4,7 @@
   "main": "index.js",
   "repository": "git@github.com:Hexellate/Hexellate.github.io.git",
   "author": "Daniel Nichols <info.danielnichols@gmail.com>",
+  "homepage": "http://Hexellate.github.io",
   "dependencies": {
     "@babel/runtime": "^7.10.5",
     "react": "^16.13.1",
@@ -79,7 +80,7 @@
     "build:prod": "cross-env NODE_ENV=production webpack --config ./config/webpack/webpack.config.prod.js --colors",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./config/webpack/webpack.config.dev.js --colors",
     "lint": "eslint .",
-    "deploy": "",
+    "deploy": "gh-pages -d build -n",
     "===== Technical Commands ========================================": "",
     "clean": "yarn clean:build && yarn clean:cache",
     "clean:build": "rimraf build",
@@ -89,6 +90,6 @@
     "clean:cache:webpack": "rimraf node_modules/.cache/cache-loader",
     "clean:cache:terser": "rimraf node_modules/.cache/terser-webpack-plugin",
     "===== pre/post Commands =========================================": "",
-    "predeploy": ""
+    "predeploy": "yarn build:prod"
   }
 }
