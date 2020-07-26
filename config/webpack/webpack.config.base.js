@@ -25,6 +25,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const paths = {
   appRoot: resolveApp('.'),
   appPublic: resolveApp('public'),
+  appAssets: resolveApp('assets'),
   entry: './src/index.tsx',
   buildOutput: path.join(__dirname, '..', '..', 'build'),
   publicPath: process.env.CDN_URL || '/',
@@ -253,9 +254,6 @@ const baseConfig = {
         {
           from: 'public/*',
           to: '[name].[ext]',
-          globOptions: {
-            ignore: ['index.html', '**.png', '**.ico'],
-          },
         },
       ],
     }),
@@ -264,11 +262,11 @@ const baseConfig = {
       chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
     }),
     new HtmlWebpackPlugin({
-      template: path.join(paths.appPublic, 'index.html'),
+      template: path.join(paths.appAssets, 'index.html'),
       cache: false,
     }),
     new FaviconsWebpackPlugin({
-      logo: path.join(paths.appPublic, 'logo512.png'),
+      logo: path.join(paths.appAssets, 'logo512.png'),
       prefix: 'static/media/',
     }),
     new webpack.EnvironmentPlugin([
