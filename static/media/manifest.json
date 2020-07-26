@@ -1,14 +1,14 @@
 {
-  "name": "Daniel-Nichols-Portfolio",
-  "short_name": "Daniel-Nichols-Portfolio",
-  "description": null,
+  "name": "Daniel Nichols Portfolio",
+  "short_name": "Daniel Nichols Portfolio",
+  "description": "",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",
   "orientation": "any",
   "start_url": "/?homescreen=1",
-  "background_color": "#fff",
-  "theme_color": "#fff",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "/static/media/android-chrome-36x36.png",

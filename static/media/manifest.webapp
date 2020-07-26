@@ -1,7 +1,7 @@
 {
   "version": "0.1.0",
-  "name": "Daniel-Nichols-Portfolio",
-  "description": null,
+  "name": "Daniel Nichols Portfolio",
+  "description": "",
   "icons": {
     "60": "/static/media/firefox_app_60x60.png",
     "128": "/static/media/firefox_app_128x128.png",
@@ -9,6 +9,6 @@
   },
   "developer": {
     "name": "Daniel Nichols",
-    "url": null
+    "url": "danielnichols.me"
   }
 }
