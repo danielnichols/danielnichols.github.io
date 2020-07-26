@@ -11,7 +11,6 @@ module.exports = merge(baseConfig.base, {
   mode: 'development',
   devtool: 'inline-source-map',
   output: {
-    pathinfo: true,
     filename: 'static/js/bundle.js',
     chunkFilename: 'static/js/[name].chunk.js',
   },
