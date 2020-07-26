@@ -1,0 +1,20 @@
+{
+  "appName": "Daniel Nichols Portfolio",
+  "appShortName": "Daniel Nichols Portfolio",
+  "appDescription": "",
+  "developerName": "Daniel Nichols",
+  "developerURL": "danielnichols.me",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background": "#ffffff",
+  "icons": {
+    "android": true,
+    "appleIcon": true,
+    "appleStartup": true,
+    "coast": true,
+    "favicons": true,
+    "firefox": true,
+    "windows": true,
+    "yandex": true
+  }
+}

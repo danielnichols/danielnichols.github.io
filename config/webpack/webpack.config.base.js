@@ -268,6 +268,7 @@ const baseConfig = {
     new FaviconsWebpackPlugin({
       logo: path.join(paths.appAssets, 'logo512.png'),
       prefix: 'static/media/',
+      favicons: JSON.parse(fs.readFileSync(path.join(paths.appAssets, 'manifestTemplate.json'))),
     }),
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
