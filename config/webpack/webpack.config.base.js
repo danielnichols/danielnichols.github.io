@@ -7,7 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
-const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -128,32 +127,6 @@ const baseConfig = {
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
-            },
-          },
-        ],
-      },
-
-      // HTML => html-loader
-      {
-        test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-            options: {
-              attributes: {
-                list: [
-                  {
-                    tag: 'img',
-                    attribute: 'src',
-                    type: 'src',
-                  },
-                  {
-                    tag: 'link',
-                    attribute: 'href',
-                    type: 'src',
-                  },
-                ],
-              },
             },
           },
         ],
@@ -290,11 +263,8 @@ const baseConfig = {
       chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
     }),
     new HtmlWebpackPlugin({
-      inject: true,
       template: path.join(paths.appPublic, 'index.html'),
-    }),
-    new InterpolateHtmlPlugin(HtmlWebpackPlugin, {
-      PUBLIC_URL: paths.publicPath,
+      favicon: path.join(paths.appPublic, 'favicon.ico'),
     }),
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
