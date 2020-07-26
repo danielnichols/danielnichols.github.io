@@ -265,6 +265,11 @@ const baseConfig = {
       template: path.join(paths.appAssets, 'index.html'),
       cache: false,
     }),
+    new HtmlWebpackPlugin({
+      template: path.join(paths.appAssets, 'index.html'),
+      filename: '404.html',
+      cache: false,
+    }),
     new FaviconsWebpackPlugin({
       logo: path.join(paths.appAssets, 'logo512.png'),
       prefix: 'static/media/',
