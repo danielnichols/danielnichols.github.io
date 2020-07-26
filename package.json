@@ -92,5 +92,7 @@
     "clean:cache:gh-pages": "rimraf node_modules/.cache/gh-pages",
     "===== pre/post Commands =========================================": "",
     "predeploy": "yarn build:prod"
+    "prebuild:prod": "yarn clean:build",
+    "prebuild:dev": "yarn clean:build"
   }
 }
