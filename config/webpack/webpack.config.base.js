@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CopyPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -253,7 +254,7 @@ const baseConfig = {
           from: 'public/*',
           to: '[name].[ext]',
           globOptions: {
-            ignore: ['index.html'],
+            ignore: ['index.html', '**.png', '**.ico'],
           },
         },
       ],
@@ -264,7 +265,11 @@ const baseConfig = {
     }),
     new HtmlWebpackPlugin({
       template: path.join(paths.appPublic, 'index.html'),
-      favicon: path.join(paths.appPublic, 'favicon.ico'),
+      cache: false,
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.join(paths.appPublic, 'logo512.png'),
+      prefix: 'static/media/',
     }),
     new webpack.EnvironmentPlugin([
       'NODE_ENV',
