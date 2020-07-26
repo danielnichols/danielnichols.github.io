@@ -1,8 +1,13 @@
+body a {
+  /* text-decoration: none; */
+  color: white;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo-container {
+/* .App-logo-container {
   width: 166px;
   height: 166px;
   overflow: hidden;
@@ -17,7 +22,7 @@
   pointer-events: none;
   margin: -2px -2px -2px -2px;
   filter: sepia(19) hue-rotate(155deg) saturate(17.5) invert(1);
-}
+} */
 
 .App-header {
   background-color: #b84747;

@@ -10,8 +10,13 @@ function App() {
         {/* <div className="App-logo-container">
           <img src={ logo } className="App-logo" alt="logo" />
         </div> */}
-        <p>
+        <h1>
           Coming Soon
+        </h1>
+        <p>
+          See progress on
+          {' '}
+          <a href="https://github.com/Hexellate/Hexellate.github.io">Github</a>
         </p>
       </header>
     </div>
