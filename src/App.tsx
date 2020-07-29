@@ -16,7 +16,7 @@ function App() {
         <p>
           See progress on
           {' '}
-          <a href="https://github.com/Hexellate/Hexellate.github.io">Github</a>
+          <a href="https://github.com/danielnichols/danielnichols.github.io">Github</a>
         </p>
       </header>
     </div>

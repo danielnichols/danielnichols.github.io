@@ -2,7 +2,7 @@
   "name": "Daniel-Nichols-Portfolio",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "git@github.com:Hexellate/Hexellate.github.io.git",
+  "repository": "git@github.com:danielnichols/danielnichols.github.io.git",
   "author": "Daniel Nichols <info.danielnichols@gmail.com>",
   "homepage": "http://www.danielnichols.me",
   "dependencies": {
