@@ -23,7 +23,21 @@ jobs:
 
       # Install Yarn
       - name: Install Yarn
-      run: npm i -g yarn@berry
+        run: npm i -g yarn@berry
+
+      # Restore Yarn cache
+      - name: Get Yarn Cache Directory Path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Cache Dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       # Install Dependencies
       - name: Install Dependencies
