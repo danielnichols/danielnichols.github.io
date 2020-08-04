@@ -22,6 +22,11 @@ const presets = [
 const plugins = [
   '@babel/plugin-syntax-dynamic-import',
   'transform-react-remove-prop-types',
+  [
+    'babel-plugin-styled-components', {
+      pure: true,
+    },
+  ],
 ];
 
 module.exports = { presets, plugins };
