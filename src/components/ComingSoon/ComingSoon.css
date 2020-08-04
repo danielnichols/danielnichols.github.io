@@ -1,0 +1,18 @@
+.Coming-soon-container {
+  text-align: center;
+}
+
+.Coming-soon-container a {
+  color: white;
+}
+
+.Coming-soon-header {
+  background-color: #b84747;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
