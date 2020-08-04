@@ -1,21 +1,38 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import logo from '~assets/oldLogo.png';
-import './ComingSoon.css';
+const Wrapper = styled.div`
+  text-align: center;
+`;
+
+const Link = styled.a`
+  color: white;
+`;
+
+const Header = styled.header`
+  background-color: #b84747;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+`;
 
 const ComingSoon = () => (
-  <div className="Coming-soon-container">
-    <header className="Coming-soon-header">
+  <Wrapper>
+    <Header>
       <h1>
         Coming Soon
       </h1>
       <p>
         See progress on
         {' '}
-        <a href="https://github.com/danielnichols/danielnichols.github.io">Github</a>
+        <Link href="https://github.com/danielnichols/danielnichols.github.io">Github</Link>
       </p>
-    </header>
-  </div>
+    </Header>
+  </Wrapper>
 );
 
 export default ComingSoon;
