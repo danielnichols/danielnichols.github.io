@@ -88,6 +88,14 @@ const baseConfig = {
         ],
       },
 
+      // CSS => Linting
+      {
+        test: /\.(mjs|jsx?|tsx?)$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: 'stylelint-custom-processor-loader',
+      },
+
       // TS => ts-loader (cached) => babel (cached, threaded)
       {
         test: /\.(tsx?)$/,
