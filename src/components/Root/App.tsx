@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 
 import ComingSoon from '~components/ComingSoon';
+import Homepage from '~components/Homepage';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -14,7 +15,7 @@ const App = () => (
         {
           !isDev
             ? <Redirect to="/soon" />
-            : <p>Homepage</p>
+            : <Homepage />
         }
       </Route>
       <Route path="/soon" exact>
