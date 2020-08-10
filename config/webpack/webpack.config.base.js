@@ -120,6 +120,7 @@ const baseConfig = {
             {
               happyPackMode: true,
               configFile: paths.tsConfig,
+              getCustomTransformers: path.join(__dirname, './webpack.ts-transformers.js'),
             },
           },
 
