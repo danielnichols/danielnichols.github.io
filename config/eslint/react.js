@@ -15,7 +15,7 @@ module.exports = {
     'react/jsx-tag-spacing': ['warn'],
     'react/jsx-wrap-multilines': ['warn'],
     'react/destructuring-assignment': 'off',
-    'react/prop-types': ['error'],
+    'react/prop-types': ['off'],
     'jsx-a11y/label-has-associated-control': [
       'error', {
         assert: 'either',
