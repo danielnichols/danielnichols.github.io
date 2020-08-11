@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  animated, useTrail, interpolate,
+} from 'react-spring';
 import { useMeasure } from 'react-use';
 import styled from 'styled-components';
 
@@ -6,9 +9,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 1px solid black; */
-  /* margin-bottom: 200px; */
-  /* margin-top: 200px; */
 
   &:before {
     content: '';
@@ -16,28 +16,18 @@ const Container = styled.div`
     width: 2px;
     height: ${props => props.lineHeight}px;
     position: absolute;
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
     z-index: -1;
   }
 `;
 
-const Line = styled.div`
-  background: black;
-  width: 2px;
-  height: 80%;
-  position: absolute;
-`;
 const Cap = styled.span`
   border: 1px solid black;
   width: 10px;
 `;
-const CapStart = styled.div``;
-const CapEnd = styled.div``;
 
-const ContentContainer = styled.div`
-  width: 300px;
-  height: 80px;
+const ContentContainer = styled(animated.div)`
+  width: 1000px;
+  height: 150px;
   text-align: center;
   border: 1px solid lightgrey;
   border-radius: 8px;
@@ -52,22 +42,40 @@ const ContentContainer = styled.div`
   }
 `;
 
-const Timeline = () => {
+const Timeline = props => {
   const [ref, { height: containerHeight }] = useMeasure();
+  const [toggle, set] = React.useState(true);
+
+  const containerTrail = useTrail(props.children.length, {
+    config: {
+      mass: 5,
+      tension: 2000,
+      friction: 200,
+    },
+    opacity: toggle ? 1 : 0, // In percent decimal
+    offsetY: toggle ? 0 : 100, // In percent
+    from: {
+      opacity: 0,
+      offsetY: 100,
+    },
+  });
+
   return (
     <React.Fragment>
       <Container ref={ ref } lineHeight={ containerHeight }>
-        {/* <Line /> */}
         <Cap />
-        {/* TODO: Receive content sections from props */}
-        <ContentContainer>Content box 1</ContentContainer>
-        <ContentContainer>Content box 2</ContentContainer>
-        <ContentContainer>Content box 3</ContentContainer>
-        <ContentContainer>Content box 4</ContentContainer>
-        <ContentContainer>Content box 5</ContentContainer>
-        <ContentContainer>Content box 6</ContentContainer>
-        <ContentContainer>Content box 7</ContentContainer>
-        <ContentContainer>Content box 8</ContentContainer>
+        {containerTrail.map(({ offsetY, opacity }, index) => (
+          <div
+            key={ props.children[index] }
+            // css="overflow: hidden;"
+          >
+            <ContentContainer style={ { opacity, transform: interpolate([offsetY], y => `translateY(${y}%)`) } }>
+              <p>
+                {props.children[index]}
+              </p>
+            </ContentContainer>
+          </div>
+        ))}
         <Cap />
       </Container>
     </React.Fragment>
