@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  animated, useTrail, interpolate,
+  animated, useTrail, interpolate, config,
 } from 'react-spring';
 import { useMeasure } from 'react-use';
 import styled from 'styled-components';
@@ -9,6 +9,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 10px;
 
   &:before {
     content: '';
@@ -23,6 +24,10 @@ const Container = styled.div`
 const Cap = styled.span`
   border: 1px solid black;
   width: 10px;
+`;
+
+const ContentContainerWrapper = styled(animated.div)`
+  overflow: hidden;
 `;
 
 const ContentContainer = styled(animated.div)`
@@ -48,15 +53,18 @@ const Timeline = props => {
 
   const containerTrail = useTrail(props.children.length, {
     config: {
-      mass: 5,
-      tension: 2000,
-      friction: 200,
+      mass: 50, // 5
+      tension: 2000, // 2000
+      friction: 400, // 200
     },
+    delay: 2000,
     opacity: toggle ? 1 : 0, // In percent decimal
     offsetY: toggle ? 0 : 100, // In percent
+    maxHeight: '300px',
     from: {
       opacity: 0,
       offsetY: 100,
+      maxHeight: '0px',
     },
   });
 
@@ -64,17 +72,17 @@ const Timeline = props => {
     <React.Fragment>
       <Container ref={ ref } lineHeight={ containerHeight }>
         <Cap />
-        {containerTrail.map(({ offsetY, opacity }, index) => (
-          <div
+        {containerTrail.map(({ offsetY, opacity, maxHeight }, index) => (
+          <ContentContainerWrapper
             key={ props.children[index] }
-            // css="overflow: hidden;"
+            style={ { maxHeight } }
           >
             <ContentContainer style={ { opacity, transform: interpolate([offsetY], y => `translateY(${y}%)`) } }>
               <p>
                 {props.children[index]}
               </p>
             </ContentContainer>
-          </div>
+          </ContentContainerWrapper>
         ))}
         <Cap />
       </Container>
