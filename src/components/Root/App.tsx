@@ -6,6 +6,8 @@ import {
 import ComingSoon from '~components/ComingSoon';
 import Homepage from '~components/Homepage';
 
+import PageNotFound from './PageNotFound';
+
 const isDev = process.env.NODE_ENV !== 'production';
 
 const App = () => (
@@ -22,7 +24,7 @@ const App = () => (
         <ComingSoon />
       </Route>
       <Route path="/404">
-        <p>Page not found.</p>
+        <PageNotFound />
       </Route>
       <Route>
         <Redirect to="/404" />
