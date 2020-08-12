@@ -1,6 +1,8 @@
+import { link } from 'fs';
+
 import React from 'react';
 import {
-  animated, useTrail, interpolate, useSpring,
+  animated, useChain, useSpring,
 } from 'react-spring';
 import styled from 'styled-components';
 
@@ -32,7 +34,7 @@ import CardTitle from './CardTitle';
 // TODO: Proper card sizing
 
 const CardContainer = styled.div``;
-const CardBody = styled(animated.div)`
+const CardBody = styled.div`
   height: 150px;
   width: 953px;
   float: left;
@@ -42,13 +44,23 @@ const CardBody = styled(animated.div)`
   border-radius: 8px 0px 0px 8px;
   background-color: white;
 `;
-const CardLinkBody = styled(animated.div)`
+const CardLinkBody = styled.div`
   height: 150px;
   width: 45px;
   float: left;
   border: 1px solid lightgrey;
   border-left: 1px solid transparent;
   border-radius: 0px 8px 8px 0px;
+  transform: translateX(-1px);
+`;
+
+const Perforation = styled(animated.div)`
+  height: 150px;
+  float: left;
+  border-left: 1px dashed lightgrey;
+  &:nth-child(odd) {
+    transform: translateX(-1px);
+  }
 `;
 
 /**
@@ -56,33 +68,45 @@ const CardLinkBody = styled(animated.div)`
  * @param props
  */
 const TimelineCard = props => {
+  // HACK: react-spring typings don't seem to like this, even though it's in the docs... Remove as soon as the typings are fixed
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const linkSpring = useSpring({
     delay: 6000,
-    marginLeft: '20px',
-    borderLeft: '1px solid lightgrey',
-    borderRight: '1px solid lightgrey',
+    marginLeft: '0px',
+    maxHeight: '0px',
+    to: [
+      {
+        marginLeft: '0px',
+        maxHeight: '300px',
+      }, {
+        marginLeft: '20px',
+        maxHeight: '300px',
+      },
+    ],
     from: {
       marginLeft: '0px',
-      borderLeft: '1px solid transparent',
-      borderRight: '1px solid transparent',
+      maxHeight: '0px',
     },
   });
 
   return (
     <CardContainer>
-      <CardBody
-        style={ { borderRight: linkSpring.borderRight } }
-      >
+      <CardBody>
         <CardTitle>{props.title}</CardTitle>
         <CardContent>{props.content}</CardContent>
         Image
       </CardBody>
-      <CardLinkBody
+      <Perforation
+        style={ { maxHeight: linkSpring.maxHeight } }
+      />
+      <Perforation
         style={ {
           marginLeft: linkSpring.marginLeft,
-          borderLeft: linkSpring.borderLeft,
+          maxHeight: linkSpring.maxHeight,
         } }
-      >
+      />
+      <CardLinkBody>
         <CardNavLink>{props.link}</CardNavLink>
       </CardLinkBody>
       <div style={ { clear: 'both' } } />
