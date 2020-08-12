@@ -21,6 +21,7 @@ const Homepage = () => (
     <Timeline>
       {elements.map((card, index) => (
         <TimelineCard
+          key={ card.title }
           title={ card.title }
           content={ card.content }
           link={ card.link }

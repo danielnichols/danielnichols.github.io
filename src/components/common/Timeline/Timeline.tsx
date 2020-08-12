@@ -74,7 +74,9 @@ const Timeline = props => {
         <Cap />
         {containerTrail.map(({ offsetY, opacity, maxHeight }, index) => (
           <ContentContainerWrapper
-            key={ props.children[index] }
+            // Entry indexes should not change in this case so index-based keys are safe
+            // eslint-disable-next-line react/no-array-index-key
+            key={ index }
             style={ { maxHeight } }
           >
             <ContentContainer style={ { opacity, transform: interpolate([offsetY], y => `translateY(${y}%)`) } }>
