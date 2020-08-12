@@ -1,9 +1,13 @@
 import React from 'react';
+import {
+  animated, useTrail, interpolate, useSpring,
+} from 'react-spring';
 import styled from 'styled-components';
 
 import CardContent from './CardContent';
 import CardNavLink from './CardNavLink';
 import CardTitle from './CardTitle';
+
 /*
   TODO:
   - Card needs to render plain when just given children
@@ -28,22 +32,22 @@ import CardTitle from './CardTitle';
 // TODO: Proper card sizing
 
 const CardContainer = styled.div``;
-const CardBody = styled.div`
+const CardBody = styled(animated.div)`
   height: 150px;
   width: 953px;
   float: left;
   text-align: center;
   border: 1px solid lightgrey;
-  border-right: 0px;
+  border-right: 1px solid transparent;
   border-radius: 8px 0px 0px 8px;
   background-color: white;
 `;
-const CardLinkBody = styled.div`
+const CardLinkBody = styled(animated.div)`
   height: 150px;
   width: 45px;
   float: left;
   border: 1px solid lightgrey;
-  border-left: 0px;
+  border-left: 1px solid transparent;
   border-radius: 0px 8px 8px 0px;
 `;
 
@@ -51,19 +55,40 @@ const CardLinkBody = styled.div`
  * Creates a card to be shown on the timeline view. Has multiple options including an image, navigation and vertical sections
  * @param props
  */
-const TimelineCard = props => (
-  <CardContainer>
-    <CardBody>
-      <CardTitle>{props.title}</CardTitle>
-      <CardContent>{props.content}</CardContent>
-      Image
-    </CardBody>
-    <CardLinkBody>
-      <CardNavLink>{props.link}</CardNavLink>
-    </CardLinkBody>
-    <div style={ { clear: 'both' } } />
-    <div />
-  </CardContainer>
-);
+const TimelineCard = props => {
+  const linkSpring = useSpring({
+    delay: 6000,
+    marginLeft: '20px',
+    borderLeft: '1px solid lightgrey',
+    borderRight: '1px solid lightgrey',
+    from: {
+      marginLeft: '0px',
+      borderLeft: '1px solid transparent',
+      borderRight: '1px solid transparent',
+    },
+  });
+
+  return (
+    <CardContainer>
+      <CardBody
+        style={ { borderRight: linkSpring.borderRight } }
+      >
+        <CardTitle>{props.title}</CardTitle>
+        <CardContent>{props.content}</CardContent>
+        Image
+      </CardBody>
+      <CardLinkBody
+        style={ {
+          marginLeft: linkSpring.marginLeft,
+          borderLeft: linkSpring.borderLeft,
+        } }
+      >
+        <CardNavLink>{props.link}</CardNavLink>
+      </CardLinkBody>
+      <div style={ { clear: 'both' } } />
+      <div />
+    </CardContainer>
+  );
+};
 
 export default TimelineCard;
