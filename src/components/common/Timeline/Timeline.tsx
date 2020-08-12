@@ -78,9 +78,7 @@ const Timeline = props => {
             style={ { maxHeight } }
           >
             <ContentContainer style={ { opacity, transform: interpolate([offsetY], y => `translateY(${y}%)`) } }>
-              <p>
-                {props.children[index]}
-              </p>
+              {props.children[index]}
             </ContentContainer>
           </ContentContainerWrapper>
         ))}
