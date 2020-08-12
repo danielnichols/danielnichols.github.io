@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  animated, useTrail, interpolate, config,
+  animated, useTrail, interpolate,
 } from 'react-spring';
 import { useMeasure } from 'react-use';
 import styled from 'styled-components';
@@ -31,13 +31,13 @@ const ContentContainerWrapper = styled(animated.div)`
 `;
 
 const ContentContainer = styled(animated.div)`
-  width: 1000px;
-  height: 150px;
-  text-align: center;
-  border: 1px solid lightgrey;
-  border-radius: 8px;
+  /* width: 1000px; */
+  /* height: 150px; */
+  /* text-align: center; */
+  /* border: 1px solid lightgrey; */
+  /* border-radius: 8px; */
   margin-bottom: 50px;
-  background-color: white;
+  /* background-color: white; */
 
   &:first-of-type {
     margin-top: 20px;

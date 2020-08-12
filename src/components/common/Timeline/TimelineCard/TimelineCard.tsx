@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import CardContent from './CardContent';
 import CardNavLink from './CardNavLink';
@@ -23,18 +24,45 @@ import CardTitle from './CardTitle';
       - Image (LHD/vert Content)
     - Nav Link
 */
+
+// TODO: Proper card sizing
+
+const CardContainer = styled.div`
+  width: 1000px;
+  height: 150px;
+`;
+const CardBody = styled.div`
+  height: 100%;
+  width: calc(100% - 45px - 3px);
+  float: left;
+  text-align: center;
+  border: 1px solid lightgrey;
+  border-radius: 8px 0px 0px 8px;
+  background-color: white;
+`;
+const CardLinkBody = styled.div`
+  height: 100%;
+  width: 45px;
+  float: left;
+  border: 1px solid lightgrey;
+  border-left: 0px;
+  border-radius: 0px 8px 8px 0px;
+`;
+
 /**
  * Creates a card to be shown on the timeline view. Has multiple options including an image, navigation and vertical sections
  * @param props
  */
 const TimelineCard = props => (
-  <div>
-    <div>
+  <CardContainer>
+    <CardBody>
       <CardTitle>{props.title}</CardTitle>
       <CardContent>{props.content}</CardContent>
-    </div>
-    <CardNavLink>{props.link}</CardNavLink>
-  </div>
+    </CardBody>
+    <CardLinkBody>
+      <CardNavLink>{props.link}</CardNavLink>
+    </CardLinkBody>
+  </CardContainer>
 );
 
 export default TimelineCard;
