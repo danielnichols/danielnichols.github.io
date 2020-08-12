@@ -27,21 +27,19 @@ import CardTitle from './CardTitle';
 
 // TODO: Proper card sizing
 
-const CardContainer = styled.div`
-  width: 1000px;
-  height: 150px;
-`;
+const CardContainer = styled.div``;
 const CardBody = styled.div`
-  height: 100%;
-  width: calc(100% - 45px - 3px);
+  height: 150px;
+  width: 953px;
   float: left;
   text-align: center;
   border: 1px solid lightgrey;
+  border-right: 0px;
   border-radius: 8px 0px 0px 8px;
   background-color: white;
 `;
 const CardLinkBody = styled.div`
-  height: 100%;
+  height: 150px;
   width: 45px;
   float: left;
   border: 1px solid lightgrey;
@@ -58,10 +56,13 @@ const TimelineCard = props => (
     <CardBody>
       <CardTitle>{props.title}</CardTitle>
       <CardContent>{props.content}</CardContent>
+      Image
     </CardBody>
     <CardLinkBody>
       <CardNavLink>{props.link}</CardNavLink>
     </CardLinkBody>
+    <div style={ { clear: 'both' } } />
+    <div />
   </CardContainer>
 );
 
