@@ -20,11 +20,17 @@ const App = () => (
             : <Homepage />
         }
       </Route>
+
       <Route path="/soon" exact>
         <ComingSoon />
       </Route>
+
       <Route path="/404">
-        <PageNotFound />
+        {
+          !isDev
+            ? <Redirect to="/soon" />
+            : <PageNotFound />
+        }
       </Route>
       <Route>
         <Redirect to="/404" />
