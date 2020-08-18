@@ -57,7 +57,7 @@ const Timeline = props => {
       tension: 2000, // 2000
       friction: 400, // 200
     },
-    delay: 2000,
+    delay: 500,
     opacity: toggle ? 1 : 0, // In percent decimal
     offsetY: toggle ? 0 : 100, // In percent
     maxHeight: '300px',
@@ -72,7 +72,9 @@ const Timeline = props => {
     <React.Fragment>
       <Container ref={ ref } lineHeight={ containerHeight }>
         <Cap />
-        {containerTrail.map(({ offsetY, opacity, maxHeight }, index) => (
+        {containerTrail.map(({
+          offsetY, opacity, maxHeight,
+        }, index) => (
           <ContentContainerWrapper
             // Entry indexes should not change in this case so index-based keys are safe
             // eslint-disable-next-line react/no-array-index-key

@@ -72,7 +72,8 @@ const TimelineCard = props => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const linkSpring = useSpring({
-    delay: 6000,
+    // delay: 6000,
+    delay: 2000,
     marginLeft: '0px',
     maxHeight: '0px',
     to: [
