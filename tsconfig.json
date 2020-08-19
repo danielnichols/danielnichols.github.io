@@ -4,6 +4,7 @@
     "noImplicitAny": false,
     "module": "esnext",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "target": "esnext",
     "jsx": "preserve",

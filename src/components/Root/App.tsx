@@ -6,6 +6,7 @@ import {
 import ComingSoon from '~components/ComingSoon';
 import Homepage from '~components/Homepage';
 
+import Page from './Page';
 import PageNotFound from './PageNotFound';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -13,24 +14,19 @@ const isDev = process.env.NODE_ENV !== 'production';
 const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" exact>
-        {
-          !isDev
-            ? <Redirect to="/soon" />
-            : <Homepage />
-        }
-      </Route>
+      <Route path="/soon" exact component={ ComingSoon } />
 
-      <Route path="/soon" exact>
-        <ComingSoon />
-      </Route>
+      {
+        !isDev
+          ? <Route path="/"><Redirect to="/soon" /></Route>
+          : ''
+      }
 
+      <Route path="/" exact component={ Homepage } />
+      <Route path="/portfolio" exact component={ Homepage } />
+      <Route path="/portfolio/item/:itemName" component={ Page } />
       <Route path="/404">
-        {
-          !isDev
-            ? <Redirect to="/soon" />
-            : <PageNotFound />
-        }
+        <PageNotFound />
       </Route>
       <Route>
         <Redirect to="/404" />
