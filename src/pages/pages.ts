@@ -1,6 +1,12 @@
-const pages = [];
+import { PageData } from '~components/Root/Page';
+const pages: PageData[] = [
+];
 
-const routes = {};
+interface Routes {
+  [path:string]: PageData;
+}
+
+const routes: Routes = {};
 
 pages.forEach(page => {
   routes[page.path] = page;
