@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
+const ResponsiveLoaderSharpAdapter = require('responsive-loader/sharp');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -154,11 +155,23 @@ const baseConfig = {
         oneOf: [
           // RASTER IMAGES
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            test: [/\.(bmp|gif)$/],
             loader: 'file-loader',
             options: {
               name: isDev ? 'static/media/[name].[ext]' : 'static/media/[name].[contenthash:8].[ext]',
               esModule: false,
+            },
+          },
+          {
+            test: /\.(jpe?g|png|webp|tiff)$/i,
+            loader: 'responsive-loader',
+            options: {
+              name: '[contenthash:16]-[width]x[height].[ext]',
+              outputPath: 'static/media',
+              adapter: ResponsiveLoaderSharpAdapter,
+              sizes: [100, 300, 500, 720, 1000, 1500, 2500],
+              placeholder: true,
+              placeholderSize: 20,
             },
           },
 

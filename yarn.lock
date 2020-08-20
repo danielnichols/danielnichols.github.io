@@ -9026,6 +9026,14 @@ resolve@^1.10.0, resolve@^1.13.1, resolve@^1.17.0, resolve@^1.3.2, resolve@^1.8.
   dependencies:
     path-parse "^1.0.6"
 
+responsive-loader@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/responsive-loader/-/responsive-loader-2.0.2.tgz#2321a4ad6076f8d1777818b4d00719995086e7ed"
+  integrity sha512-5SiZLBHBn1EXwtXjVBMzGHYlekz641oAVZb39DB1btuxmrrNDWCroM3+zjw2F1vTix79BqIq6WWlTpuy1ZEd2Q==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^2.7.0"
+
 restore-cursor@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/restore-cursor/-/restore-cursor-3.1.0.tgz#39f67c54b3a7a58cea5236d95cf0034239631f7e"

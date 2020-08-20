@@ -4,6 +4,7 @@ module.exports = {
     // As it is possible to have multiple files with the same name but different extension, file extensions should always be used
     // 'import/extensions': ['error', 'ignorePackages'],
     'import/extensions': ['off'],
+    'import/no-duplicates': ['error', { considerQueryString: true }],
     'import/prefer-default-export': ['off'],
     'import/first': ['error'],
     'import/order': [

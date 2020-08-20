@@ -2,6 +2,15 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 
+type ResponsiveImageOutput = {
+  src: string,
+  srcSet: string,
+  placeholder: string,
+  images: {path: string, width: number, height: number}[],
+  width: number,
+  height: number
+}
+
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly NODE_ENV: 'development' | 'production' | 'test';
@@ -20,23 +29,23 @@ declare module '*.gif' {
 }
 
 declare module '*.jpg' {
-  const src: string;
-  export default src;
+  const content: ResponsiveImageOutput;
+  export default content;
 }
 
 declare module '*.jpeg' {
-  const src: string;
-  export default src;
+  const content: ResponsiveImageOutput;
+  export default content;
 }
 
 declare module '*.png' {
-  const src: string;
-  export default src;
+  const content: ResponsiveImageOutput;
+  export default content;
 }
 
 declare module '*.webp' {
-    const src: string;
-    export default src;
+    const content: ResponsiveImageOutput;
+    export default content;
 }
 
 declare module '*.svg' {
