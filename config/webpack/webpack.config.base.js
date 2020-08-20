@@ -5,6 +5,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminWebp = require('imagemin-webp');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
@@ -13,8 +15,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const WebpackBarPlugin = require('webpackbar');
-require('dotenv').config(); // Add vars from .env file to process.env
 
+require('dotenv').config(); // Add vars from .env file to process.env
 const appPackage = require('../../package.json');
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -164,15 +166,23 @@ const baseConfig = {
           },
           {
             test: /\.(jpe?g|png|webp|tiff)$/i,
-            loader: 'responsive-loader',
-            options: {
-              name: '[contenthash:16]-[width]x[height].[ext]',
-              outputPath: 'static/media',
-              adapter: ResponsiveLoaderSharpAdapter,
-              sizes: [100, 300, 500, 720, 1000, 1500, 2500],
-              placeholder: true,
-              placeholderSize: 20,
-            },
+            use: [
+              {
+                loader: 'cache-loader',
+              },
+              {
+                loader: 'responsive-loader',
+                options: {
+                  name: '[contenthash:16]-[width]x[height].[ext]',
+                  format: 'jpg',
+                  sizes: [100, 300, 500, 720, 1000, 1500, 2500],
+                  adapter: ResponsiveLoaderSharpAdapter,
+                  outputPath: 'static/media',
+                  placeholder: true,
+                  placeholderSize: 20,
+                },
+              },
+            ],
           },
 
           // VECTOR IMAGES (xml based)
@@ -294,6 +304,7 @@ const baseConfig = {
     }),
     new FaviconsWebpackPlugin({
       logo: path.join(paths.appAssets, 'logo512.png'),
+      cache: true,
       prefix: 'static/media/',
       favicons: JSON.parse(fs.readFileSync(path.join(paths.appAssets, 'manifestTemplate.json'))),
     }),
@@ -301,6 +312,12 @@ const baseConfig = {
       'NODE_ENV',
       'DEBUG',
     ]),
+    new ImageminPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      cacheFolder: 'node_modules/.cache/imagemin-plugin',
+      onlyUseIfSmaller: true,
+      plugins: [ImageminWebp({ quality: 85 })],
+    }),
   ],
   node: {
     module: 'empty',
