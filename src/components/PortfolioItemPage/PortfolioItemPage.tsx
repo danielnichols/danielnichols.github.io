@@ -21,7 +21,7 @@ export interface PageData {
   }
 }
 
-const Page = () => {
+const PortfolioItemPage = () => {
   const { itemName } = useParams();
   const history = useHistory();
 
@@ -35,4 +35,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default PortfolioItemPage;

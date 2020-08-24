@@ -1,4 +1,4 @@
-import { PageData } from '~components/Root/Page';
+import type { PageData } from '~components/PortfolioItemPage';
 const pages: PageData[] = [
 ];
 
