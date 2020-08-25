@@ -10,6 +10,7 @@
     "core-js": "^3.6.5",
     "lodash": "^4.17.19",
     "lodash-es": "^4.17.15",
+    "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-content-loader": "^5.1.0",
@@ -19,6 +20,7 @@
     "react-transition-group": "^4.4.1",
     "react-use": "^15.3.3",
     "styled-components": "^5.1.1",
+    "styled-system": "^5.1.5",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
