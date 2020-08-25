@@ -29,6 +29,14 @@ module.exports = {
             group: 'internal',
           },
           {
+            pattern: '~theme/**',
+            group: 'internal',
+          },
+          {
+            pattern: '~theme',
+            group: 'internal',
+          },
+          {
             pattern: '~assets/**',
             group: 'index',
             position: 'before',

@@ -24,6 +24,12 @@
       "~utils": [
         "./src/utils"
       ],
+      "~theme/*": [
+        "./src/theme/*"
+      ],
+      "~theme": [
+        "./src/theme"
+      ],
       "~assets/*": [
         "./src/assets/*"
       ],

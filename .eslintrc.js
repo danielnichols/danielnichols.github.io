@@ -22,10 +22,10 @@ module.exports = {
     './config/eslint/react.js',
   ],
   settings: {
-    'import/extensions': ['.js', '.jsx', '.json', '.d.ts', '.ts', '.tsx'],
     react: {
       version: 'detect',
     },
+    'import/extensions': ['.js', '.jsx', '.json', '.d.ts', '.ts', '.tsx'],
   },
   rules: {
     'class-methods-use-this': ['warn'],
