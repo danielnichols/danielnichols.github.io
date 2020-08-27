@@ -128,6 +128,7 @@ const theme = {
   sizes,
   space,
   zIndices,
+  breakpoints,
 };
 
 export { theme };
