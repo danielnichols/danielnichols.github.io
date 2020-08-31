@@ -1,6 +1,7 @@
 module.exports = {
   rules: {
     'no-unused-vars': ['warn'],
+    'prefer-destructuring': ['warn'],
     // As it is possible to have multiple files with the same name but different extension, file extensions should always be used
     // 'import/extensions': ['error', 'ignorePackages'],
     'import/extensions': ['off'],
