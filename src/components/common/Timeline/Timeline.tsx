@@ -17,13 +17,13 @@ const Container = styled.div`
     width: 2px;
     height: ${props => props.lineHeight}px;
     position: absolute;
-    z-index: -1;
   }
 `;
 
 const Cap = styled.span`
   border: 1px solid black;
   width: 10px;
+  z-index: 1;
 `;
 
 const ContentContainerWrapper = styled(animated.div)`
