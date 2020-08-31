@@ -51,6 +51,7 @@ const CardLinkBody = styled.div`
   border: 1px solid lightgrey;
   border-left: 1px solid transparent;
   border-radius: 0px 8px 8px 0px;
+  background-color: white;
   transform: translateX(-1px);
 `;
 
@@ -73,7 +74,7 @@ const TimelineCard = props => {
   // @ts-ignore
   const linkSpring = useSpring({
     // delay: 6000,
-    delay: 2000,
+    delay: 4000,
     marginLeft: '0px',
     maxHeight: '0px',
     to: [
