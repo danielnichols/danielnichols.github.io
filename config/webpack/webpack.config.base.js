@@ -166,7 +166,7 @@ const baseConfig = {
             },
           },
           {
-            test: /\.(jpe?g|png|webp|tiff)$/i,
+            test: /\.(jpe?g|png|webp|tiff?)$/i,
             use: [
               {
                 loader: 'responsive-loader',
@@ -198,7 +198,7 @@ const baseConfig = {
           // Last resort loader
           {
             loader: 'file-loader',
-            exclude: [/\.(mjs|jsx?|tsx?)$/, /\.html$/, /\.json$/, /\.css$/],
+            exclude: /\.(mjs|jsx?|tsx?|html?|json|css|jpe?g|png|webp|tiff?|bmp|gif)$/i,
             options: {
               name: isDev ? 'static/media/[name].[ext]' : 'static/media/[name].[contenthash:8].[ext]',
               esModule: false,
