@@ -1,28 +1,18 @@
 import React from 'react';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
+import {
+  useParams, Redirect, useHistory, Link,
+} from 'react-router-dom';
 
 import pages from '~src/pages';
 
-export interface PageData {
-  title: string;
-  path: string;
-  summary: {
-    description: string;
-    image?: ResponsiveImageOutput;
-  }
-  content: {
-    description: string;
-    attribution: string;
-    coverImage?: ResponsiveImageOutput;
-    timeline?: {
-      description: string;
-      image?: ResponsiveImageOutput;
-    }[]
-  }
+import IntroSection from './IntroSection';
+
+interface RouteParams {
+  itemName: string;
 }
 
 const PortfolioItemPage = () => {
-  const { itemName } = useParams();
+  const { itemName } = useParams<RouteParams>();
   const history = useHistory();
 
   if (!(itemName in pages)) {
@@ -30,8 +20,15 @@ const PortfolioItemPage = () => {
     return null;
   }
 
+  const page = pages[itemName];
+
   return (
-    <div>{itemName}</div>
+    <div>
+      {/* <Link to="/portfolio">
+        &lt; Go Back
+      </Link> */}
+      <IntroSection page={ page } />
+    </div>
   );
 };
 
