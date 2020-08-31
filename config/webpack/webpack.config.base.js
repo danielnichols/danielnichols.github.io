@@ -10,7 +10,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
-const ResponsiveLoaderSharpAdapter = require('responsive-loader/sharp');
+// const ResponsiveLoaderSharpAdapter = require('responsive-loader/sharp');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -169,18 +169,16 @@ const baseConfig = {
             test: /\.(jpe?g|png|webp|tiff)$/i,
             use: [
               {
-                loader: 'cache-loader',
-              },
-              {
                 loader: 'responsive-loader',
                 options: {
                   name: '[contenthash:16]-[width]x[height].[ext]',
-                  format: 'jpg',
                   sizes: [100, 300, 500, 720, 1000, 1500, 2500],
-                  adapter: ResponsiveLoaderSharpAdapter,
+                  quality: 100,
+                  // Sharp adapter seems to cause issues for pngs
+                  // adapter: ResponsiveLoaderSharpAdapter,
                   outputPath: 'static/media',
                   placeholder: true,
-                  placeholderSize: 20,
+                  placeholderSize: 42,
                 },
               },
             ],
