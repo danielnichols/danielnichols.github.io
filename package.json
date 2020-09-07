@@ -119,6 +119,7 @@
     "clean:cache:terser": "rimraf node_modules/.cache/terser-webpack-plugin",
     "clean:cache:imagemin": "rimraf node_modules/.cache/imagemin-plugin",
     "clean:cache:gh-pages": "rimraf node_modules/.cache/gh-pages",
+    "rimraf": "./node_modules/rimraf/bin.js",
     "===== pre/post Commands =========================================": "",
     "predeploy": "yarn clean:cache:gh-pages && yarn build:prod",
     "prebuild:prod": "yarn clean:build",
