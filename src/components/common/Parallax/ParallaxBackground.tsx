@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 const Background = styled(animated.div)`
   background: url(${({ backgroundURL }) => backgroundURL});
+  background-color: ${({ theme }) => theme.colors.reds[1]};
+  background-blend-mode: luminosity;
   position: fixed;
   width: ${({ width }) => width}px;
   height: ${({ height }) => height + 600}px;
