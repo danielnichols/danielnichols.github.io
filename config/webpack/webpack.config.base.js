@@ -187,21 +187,28 @@ const baseConfig = {
           // VECTOR IMAGES (xml based)
           {
             test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            use: {
-              loader: 'file-loader',
-              options: {
-                mimetype: 'image/svg+xml',
-                name: isDev ? 'static/media/[name].[ext]' : 'static/media/[name].[contenthash:8].[ext]',
+            use: [
+              {
+                loader: '@svgr/webpack',
               },
-            },
+              {
+                loader: 'file-loader',
+                options: {
+                  mimetype: 'image/svg+xml',
+                  name: isDev ? '[name].[ext]' : '[name].[contenthash:20].[ext]',
+                  outputPath: 'static/media/',
+                },
+              },
+            ],
           },
           // Last resort loader
           {
             loader: 'file-loader',
             exclude: /\.(mjs|jsx?|tsx?|html?|json|css|jpe?g|png|webp|tiff?|bmp|gif)$/i,
             options: {
-              name: isDev ? 'static/media/[name].[ext]' : 'static/media/[name].[contenthash:8].[ext]',
-              esModule: false,
+              name: isDev ? '[name].[ext]' : '[name].[contenthash:20].[ext]',
+              outputPath: 'static/media/',
+              // esModule: false,
             },
           },
         ],
