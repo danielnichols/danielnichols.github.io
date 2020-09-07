@@ -6,7 +6,7 @@ import styled, { keyframes } from 'styled-components';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import DotGrid from '~assets/backgrounds/diagonal_striped_brick.png?size=2000';
+import BackgroundImage from '~assets/backgrounds/diagonal_striped_brick.png?size=2000';
 
 const Link = styled(RouterLink)`
   color: #b84747;
@@ -31,7 +31,7 @@ const Header = styled.header`
   justify-content: center;
   font-size: 30px;
   color: #b84747;
-  background: url(${DotGrid.src});
+  background: url(${BackgroundImage.src});
   background-color: ${({ theme }) => theme.colors.reds[1]};
   background-blend-mode: luminosity;
   animation: ${scroll} 20s linear infinite;
