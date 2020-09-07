@@ -11,6 +11,10 @@ const Background = styled(animated.div)`
   background-position-x: ${({ center }) => (center ? 'center' : '')};
 `;
 
+const ContentContainer = styled.div`
+transform: translateZ(1px);
+`;
+
 interface ParallaxBackgroundProps {
   backgroundURL: string;
   backgroundOffsetX?: number;
@@ -39,9 +43,9 @@ const ParallaxBackground: React.FC<ParallaxBackgroundProps> = props => {
         center={ props.centerBackground }
         style={ { transform: scrollTop.interpolate(y => `translateY(${y}px)`) } }
       />
-      <div ref={ ref }>
+      <ContentContainer ref={ ref }>
         {props.children}
-      </div>
+      </ContentContainer>
     </div>
   );
 };
