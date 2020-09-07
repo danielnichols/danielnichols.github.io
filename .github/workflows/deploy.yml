@@ -23,7 +23,9 @@ jobs:
 
       # Install Yarn
       - name: Install Yarn
-        run: npm i -g yarn@berry
+        run: |
+          npm i -g yarn
+          yarn --version
 
       # Restore Yarn cache
       - name: Get Yarn Cache Directory Path
@@ -41,7 +43,9 @@ jobs:
 
       # Install Dependencies
       - name: Install Dependencies
-        run: yarn install
+        run: |
+          yarn install
+          yarn --version
 
       # Build the site
       - name: Build page
