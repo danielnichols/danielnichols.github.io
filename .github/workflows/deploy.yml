@@ -23,7 +23,9 @@ jobs:
 
       # Install Yarn
       - name: Install Yarn
-        run: npm i -g yarn@berry
+        run: |
+          npm i -g yarn@berry
+          yarn -V
 
       # Restore Yarn cache
       - name: Get Yarn Cache Directory Path
