@@ -97,7 +97,11 @@ const TimelineCard = props => {
       <CardBody>
         <CardTitle>{props.title}</CardTitle>
         <CardContent>{props.content}</CardContent>
-        Image
+        {props.image && (
+        <picture>
+          <img src={ props.image } alt="test" loading="lazy" />
+        </picture>
+        )}
       </CardBody>
       <Perforation
         style={ { maxHeight: linkSpring.maxHeight } }
