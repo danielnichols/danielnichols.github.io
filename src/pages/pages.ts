@@ -1,9 +1,11 @@
 import type { PageData } from '~components/PortfolioItemPage';
 
 import testPage from './testPage';
+import testPage2 from './testPage2';
 
 const pages: PageData[] = [
   testPage,
+  testPage2,
 ];
 
 interface Routes {
