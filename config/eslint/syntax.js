@@ -45,8 +45,8 @@ module.exports = {
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
-        'linebreak-style': 'warn'
       },
     ],
+    'linebreak-style': 'warn'
   },
 };
