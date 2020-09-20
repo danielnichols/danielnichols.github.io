@@ -9,7 +9,7 @@ const TitleContainer = styled.div`
 `;
 
 const CardTitle = props => (
-  <TitleContainer>
+  <TitleContainer ref={ props.innerRef }>
     {props.children}
   </TitleContainer>
 );

@@ -4,6 +4,7 @@ import React from 'react';
 import {
   animated, useChain, useSpring,
 } from 'react-spring';
+import { useMeasure } from 'react-use';
 import styled from 'styled-components';
 
 import CardContent from './CardContent';
@@ -72,6 +73,7 @@ const Perforation = styled(animated.div)`
  * @param props
  */
 const TimelineCard = props => {
+  const [titleRef, { height: titleHeight }] = useMeasure();
   // HACK: react-spring typings don't seem to like this, even though it's in the docs... Remove as soon as the typings are fixed
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -98,8 +100,9 @@ const TimelineCard = props => {
   return (
     <CardContainer>
       <CardBody>
-        <CardTitle>{props.title}</CardTitle>
+        <CardTitle innerRef={ titleRef }>{props.title}</CardTitle>
         {props.image && <CardImage image={ props.image } />}
+        <div style={ { height: `${titleHeight}px` } } />
         <CardContent>{props.content}</CardContent>
       </CardBody>
       <Perforation
