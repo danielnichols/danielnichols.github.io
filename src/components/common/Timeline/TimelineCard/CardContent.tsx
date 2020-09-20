@@ -1,9 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const ContentContainer = styled.div`
+  /* float: left; */
+  /* max-width: 50%; */
+`;
 
 const CardContent = props => (
-  <div>
+  <ContentContainer>
     {props.children}
-  </div>
+  </ContentContainer>
 );
 
 export default CardContent;

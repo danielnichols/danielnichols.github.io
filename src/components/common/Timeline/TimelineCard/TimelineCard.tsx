@@ -7,6 +7,7 @@ import {
 import styled from 'styled-components';
 
 import CardContent from './CardContent';
+import CardImage from './CardImage';
 import CardNavLink from './CardNavLink';
 import CardTitle from './CardTitle';
 
@@ -34,6 +35,7 @@ import CardTitle from './CardTitle';
 // TODO: Proper card sizing
 
 const CardContainer = styled.div``;
+
 const CardBody = styled.div`
   height: 150px;
   width: 953px;
@@ -44,6 +46,7 @@ const CardBody = styled.div`
   border-radius: 8px 0px 0px 8px;
   background-color: white;
 `;
+
 const CardLinkBody = styled.div`
   height: 150px;
   width: 45px;
@@ -96,12 +99,8 @@ const TimelineCard = props => {
     <CardContainer>
       <CardBody>
         <CardTitle>{props.title}</CardTitle>
+        {props.image && <CardImage image={ props.image } />}
         <CardContent>{props.content}</CardContent>
-        {props.image && (
-        <picture>
-          <img src={ props.image } alt="test" loading="lazy" />
-        </picture>
-        )}
       </CardBody>
       <Perforation
         style={ { maxHeight: linkSpring.maxHeight } }

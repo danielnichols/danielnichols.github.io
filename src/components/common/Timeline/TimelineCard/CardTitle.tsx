@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const TitleContainer = styled.div`
+  text-align: left;
+`;
 
 const CardTitle = props => (
-  <div>
+  <TitleContainer>
     {props.children}
-  </div>
+  </TitleContainer>
 );
 
 export default CardTitle;
