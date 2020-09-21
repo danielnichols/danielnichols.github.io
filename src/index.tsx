@@ -5,7 +5,6 @@ import App from '~components/Root/App';
 import { ThemeProvider } from '~theme';
 
 import reportWebVitals from './reportWebVitals';
-import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
