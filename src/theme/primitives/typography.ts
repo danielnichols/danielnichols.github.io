@@ -10,7 +10,7 @@ export default {
     48,
   ],
   fontWeights: [
-    '0',
+    '1',
     '100',
     '200',
     '300',

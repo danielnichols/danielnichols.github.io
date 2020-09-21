@@ -49,7 +49,7 @@ const colors = {
 };
 
 const fonts = {
-  normal: createFontSet(['Roboto', 'Arial', 'Helvetica', 'sans-serif']),
+  normal: createFontSet(['Quicksand', 'Arial', 'Helvetica', 'sans-serif']),
   mono: createFontSet(['Courier New', 'Courier', 'monospace']),
 };
 const { fontSizes } = typography;
