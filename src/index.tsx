@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from '~components/Root/App';
-import { ThemeProvider } from '~theme';
+import { ThemeProvider, BaseStyles } from '~theme';
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
+      <BaseStyles />
       <App />
     </ThemeProvider>
   </React.StrictMode>,
