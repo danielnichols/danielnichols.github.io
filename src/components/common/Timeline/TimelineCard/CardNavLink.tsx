@@ -11,7 +11,7 @@ const LinkContainer = styled.div`
 `;
 
 const Arrow = styled(ArrowIcon)`
-  width: 70%;
+  width: 40%;
   filter: drop-shadow(0px 1px 2px #777);
 `;
 

@@ -1,4 +1,5 @@
 import { link } from 'fs';
+import { url } from 'inspector';
 
 import React from 'react';
 import {
@@ -35,38 +36,30 @@ import CardTitle from './CardTitle';
 
 // TODO: Proper card sizing
 
-const CardContainer = styled.div``;
+const CardContainer = styled.div`
+  display: flex;
+  align-items: center;
+  filter: url(#timelineCardLinkDripAnimation);
+`;
 
-const CardBody = styled.div`
+const CardBody = styled(animated.div)`
   height: 150px;
   width: 953px;
   overflow: hidden;
-  float: left;
   text-align: center;
   border: 1px solid #ffaeae;
-  border-right: 1px solid transparent;
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 8px;
   background-color: white;
 `;
 
-const CardLinkBody = styled.div`
-  height: 150px;
-  width: 45px;
-  float: left;
+const CardLinkBody = styled(animated.div)`
+  height: 50px;
+  width: 50px;
+  position: relative;
+  z-index: -1;
   border: 1px solid #ffaeae;
-  border-left: 1px solid transparent;
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 50px;
   background-color: white;
-  transform: translateX(-1px);
-`;
-
-const Perforation = styled(animated.div)`
-  height: 150px;
-  float: left;
-  border-left: 1px dashed #ffaeae;
-  &:nth-child(odd) {
-    transform: translateX(-1px);
-  }
 `;
 
 /**
@@ -74,6 +67,7 @@ const Perforation = styled(animated.div)`
  * @param props
  */
 const TimelineCard = props => {
+  const filterRef = React.useRef();
   const [titleRef, { height: titleHeight }] = useMeasure();
   // HACK: react-spring typings don't seem to like this, even though it's in the docs... Remove as soon as the typings are fixed
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -81,46 +75,62 @@ const TimelineCard = props => {
   const linkSpring = useSpring({
     // delay: 6000,
     delay: 4000,
-    marginLeft: '0px',
-    maxHeight: '0px',
-    to: [
-      {
-        marginLeft: '0px',
-        maxHeight: '300px',
-      }, {
-        marginLeft: '20px',
-        maxHeight: '300px',
-      },
-    ],
+    // config: { mass: 1, tension: 170, friction: 26 }, // default
+    // config: { mass: 1, tension: 280, friction: 60 }, // slow
+    config: { mass: 1, tension: 280, friction: 120 }, // molasses
+    margin: -52,
+    to: {
+      margin: 20,
+    },
     from: {
-      marginLeft: '0px',
-      maxHeight: '0px',
+      margin: -52,
     },
   });
 
   return (
-    <CardContainer>
-      <CardBody>
-        <CardTitle innerRef={ titleRef }>{props.title}</CardTitle>
-        {props.image && <CardImage image={ props.image } />}
-        <div style={ { height: `${titleHeight}px` } } />
-        <CardContent>{props.content}</CardContent>
-      </CardBody>
-      <Perforation
-        style={ { maxHeight: linkSpring.maxHeight } }
-      />
-      <Perforation
-        style={ {
-          marginLeft: linkSpring.marginLeft,
-          maxHeight: linkSpring.maxHeight,
-        } }
-      />
-      <CardLinkBody>
-        <CardNavLink>{props.link}</CardNavLink>
-      </CardLinkBody>
-      <div style={ { clear: 'both' } } />
-      <div />
-    </CardContainer>
+    <>
+      <svg style={ { position: 'absolute', width: 0, height: 0 } }>
+        <filter id="timelineCardLinkDripAnimation">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix
+            in="blur"
+            values="1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 30 -15"
+            result="aab"
+          />
+          <feBlend in="SourceGraphic" in2="aab" />
+        </filter>
+      </svg>
+      <CardContainer filterRef={ filterRef }>
+        <CardBody
+          style={ { marginLeft: linkSpring.margin.interpolate(val => val.valueOf() as number + 52) } }
+        >
+          <CardTitle
+            innerRef={ titleRef }
+          >
+            {props.title}
+          </CardTitle>
+          {props.image && <CardImage image={ props.image } />}
+          <div style={ { height: `${titleHeight}px` } } />
+          <CardContent>
+            {props.content}
+
+          </CardContent>
+        </CardBody>
+        <CardLinkBody
+          style={ { marginLeft: linkSpring.margin } }
+        >
+          <CardNavLink>
+            {props.link}
+
+          </CardNavLink>
+        </CardLinkBody>
+        {/* <div style={ { clear: 'both' } } /> */}
+        <div />
+      </CardContainer>
+    </>
   );
 };
 
