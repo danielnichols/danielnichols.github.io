@@ -7,13 +7,13 @@ const TitleContainer = styled.div`
   position: absolute;
   padding-left: 6px;
   text-align: left;
-  font-size: ${({ theme }) => theme.fontSizes[4]}px;
+  width: inherit;
 `;
 
 const CardTitle = props => (
   <TitleContainer ref={ props.innerRef }>
     <Text preset="cardHeading">
-    {props.children}
+      {props.children}
     </Text>
   </TitleContainer>
 );
