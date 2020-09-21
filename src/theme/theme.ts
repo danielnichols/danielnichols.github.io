@@ -75,12 +75,20 @@ const shadows = {
 const borders = {};
 const borderWidths = [0, '1px'];
 const borderStyles = {};
-const radii = [
-  '0',
-  '2px',
-  '5px',
-  '1000px',
-];
+const radii = {
+  ...[
+    '0',
+    '2px',
+    '5px',
+    '8px',
+    '12px',
+    '1000px',
+  ],
+  small: '2px',
+  medium: '8px',
+  large: '12px',
+  infinite: '1000000px',
+};
 
 const sizes = {
   small: '480px',

@@ -48,7 +48,7 @@ const CardBody = styled(animated.div)`
   overflow: hidden;
   text-align: center;
   border: 1px solid #ffaeae;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.radii.large};
   background-color: white;
 `;
 
@@ -58,7 +58,7 @@ const CardLinkBody = styled(animated.div)`
   position: relative;
   z-index: -1;
   border: 1px solid #ffaeae;
-  border-radius: 50px;
+  border-radius: ${props => props.theme.radii.infinite};
   background-color: white;
 `;
 
