@@ -40,6 +40,7 @@ const CardContainer = styled.div``;
 const CardBody = styled.div`
   height: 150px;
   width: 953px;
+  overflow: hidden;
   float: left;
   text-align: center;
   border: 1px solid lightgrey;
