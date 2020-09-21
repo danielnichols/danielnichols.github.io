@@ -1,8 +1,8 @@
 export default {
   fontSizes: [
-    12,
     14,
     16,
+    18,
     20,
     24,
     32,
@@ -10,16 +10,16 @@ export default {
     48,
   ],
   fontWeights: [
-    0,
-    100,
-    200,
-    300,
-    400, // normal
-    500,
-    600,
-    700, // bold
-    800,
-    900,
+    '0',
+    '100',
+    '200',
+    '300',
+    '400', // normal
+    '500',
+    '600',
+    '700', // bold
+    '800',
+    '900',
   ],
   lineHeights: {
     condensedUltra: 1,
