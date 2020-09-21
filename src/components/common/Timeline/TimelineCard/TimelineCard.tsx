@@ -43,7 +43,7 @@ const CardBody = styled.div`
   overflow: hidden;
   float: left;
   text-align: center;
-  border: 1px solid lightgrey;
+  border: 1px solid #ffaeae;
   border-right: 1px solid transparent;
   border-radius: 8px 0px 0px 8px;
   background-color: white;
@@ -53,7 +53,7 @@ const CardLinkBody = styled.div`
   height: 150px;
   width: 45px;
   float: left;
-  border: 1px solid lightgrey;
+  border: 1px solid #ffaeae;
   border-left: 1px solid transparent;
   border-radius: 0px 8px 8px 0px;
   background-color: white;
@@ -63,7 +63,7 @@ const CardLinkBody = styled.div`
 const Perforation = styled(animated.div)`
   height: 150px;
   float: left;
-  border-left: 1px dashed lightgrey;
+  border-left: 1px dashed #ffaeae;
   &:nth-child(odd) {
     transform: translateX(-1px);
   }
