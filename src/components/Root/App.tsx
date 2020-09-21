@@ -7,6 +7,7 @@ import ComingSoon from '~components/ComingSoon';
 import Homepage from '~components/Homepage';
 import PortfolioItemPage from '~components/PortfolioItemPage';
 
+import { AppFrame } from './AppFrame';
 import PageNotFound from './PageNotFound';
 
 const isDev = process.env.NODE_ENV !== 'production';
@@ -22,9 +23,23 @@ const App = () => (
           : ''
       }
 
-      <Route path="/" exact component={ Homepage } />
-      <Route path="/portfolio" exact component={ Homepage } />
-      <Route path="/portfolio/item/:itemName" component={ PortfolioItemPage } />
+      <Route path="/" exact>
+        <AppFrame>
+          <Homepage />
+        </AppFrame>
+      </Route>
+
+      <Route path="/portfolio" exact>
+        <AppFrame>
+          <Homepage />
+        </AppFrame>
+      </Route>
+
+      <Route path="/portfolio/item/:itemName">
+        <AppFrame>
+          <PortfolioItemPage />
+        </AppFrame>
+      </Route>
       <Route path="/404">
         <PageNotFound />
       </Route>
