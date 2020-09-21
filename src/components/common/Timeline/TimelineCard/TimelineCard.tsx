@@ -89,6 +89,7 @@ const TimelineCard = props => {
 
   return (
     <>
+      {/* TODO: Move filter def someplace better */}
       <svg style={ { position: 'absolute', width: 0, height: 0 } }>
         <filter id="timelineCardLinkDripAnimation">
           <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
