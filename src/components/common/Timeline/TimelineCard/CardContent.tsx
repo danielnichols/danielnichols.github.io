@@ -2,6 +2,8 @@ import React from 'react';
 import Truncate from 'react-truncate';
 import styled from 'styled-components';
 
+import { Text } from '~components/common/Text';
+
 const ContentContainer = styled.div`
   text-align: left;
   padding-left: 6px;
@@ -10,17 +12,19 @@ const ContentContainer = styled.div`
 
 const CardContent = props => (
   <ContentContainer>
-    <Truncate
-      lines={ 4 }
-      ellipsis={ (
-        <span>
-          <br />
-          Keep Reading...
-        </span>
+    <Text preset="paragraph">
+      <Truncate
+        lines={ 4 }
+        ellipsis={ (
+          <span>
+            <br />
+            Keep Reading...
+          </span>
       ) }
-    >
-      {props.children}
-    </Truncate>
+      >
+        {props.children}
+      </Truncate>
+    </Text>
   </ContentContainer>
 );
 
