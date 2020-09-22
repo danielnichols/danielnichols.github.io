@@ -1,9 +1,12 @@
+// TODO: Refactor me
 import React from 'react';
 import {
   animated, useTrail, interpolate,
 } from 'react-spring';
 import { useMeasure } from 'react-use';
 import styled from 'styled-components';
+
+import { CardDripFilter } from './TimelineCard/CardDripEffect';
 
 const Container = styled.div`
   display: flex;
@@ -70,6 +73,7 @@ const Timeline = props => {
 
   return (
     <React.Fragment>
+      <CardDripFilter />
       <Container ref={ ref } lineHeight={ containerHeight }>
         <Cap />
         {containerTrail.map(({

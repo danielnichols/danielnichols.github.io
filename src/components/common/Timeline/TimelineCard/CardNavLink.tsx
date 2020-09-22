@@ -3,11 +3,17 @@ import styled from 'styled-components';
 
 import { ReactComponent as ArrowIcon } from './angle-right-outline.svg';
 
-const LinkContainer = styled.div`
+const LinkWrapper = styled.div`
+  height: 50px;
+  width: 50px;
+  position: relative;
+  z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  background-color: white;
+  border: 1px solid #ffaeae;
+  border-radius: ${props => props.theme.radii.infinite};
 `;
 
 const Arrow = styled(ArrowIcon)`
@@ -15,13 +21,19 @@ const Arrow = styled(ArrowIcon)`
   filter: drop-shadow(0px 1px 2px #777);
 `;
 
-const CardNavLink = props => (
-  <LinkContainer>
-    {/* {props.children} */}
+const CardLinkCutout = styled.div`
+  height: 50px;
+  width: 50px;
+  background-color: #ffaeae;
+  border: 1px solid #ffaeae;
+  border-radius: ${props => props.theme.radii.infinite};
+`;
 
-    {/* <img src={ ArrowIcon } alt="Open card" /> */}
+const CardNavLink = props => (
+  <LinkWrapper>
     <Arrow />
-  </LinkContainer>
+  </LinkWrapper>
 );
 
 export default CardNavLink;
+export { CardLinkCutout };
