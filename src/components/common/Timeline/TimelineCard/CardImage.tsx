@@ -7,7 +7,7 @@ const Img = styled.img`
   height: 30vh;
   overflow: hidden;
 
-  @media(min-width: ${props => props.theme.breakpoints[1]}) {
+  @media(min-width: ${({ theme }) => theme.breakpoints[1]}) {
     float: right;
     width: 60%;
     height: 100%;

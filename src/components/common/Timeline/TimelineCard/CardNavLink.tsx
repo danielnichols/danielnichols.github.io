@@ -12,10 +12,10 @@ const LinkWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background-color: white;
-  border: 1px solid #ffaeae;
-  border-radius: ${props => props.theme.radii.infinite};
+  border: ${({ theme }) => theme.borders.card};
+  border-radius: ${({ theme }) => theme.radii.infinite};
 
-  @media(max-width: ${props => props.theme.breakpoints[1]}) {
+  @media(max-width: ${({ theme }) => theme.breakpoints[1]}) {
     display: none;
   }
 `;
@@ -28,9 +28,9 @@ const Arrow = styled(ArrowIcon)`
 const CardLinkCutout = styled.div`
   height: 50px;
   width: 50px;
-  background-color: #ffaeae;
-  border: 1px solid #ffaeae;
-  border-radius: ${props => props.theme.radii.infinite};
+  background-color: ${({ theme }) => theme.colors.lightRed};
+  border: ${({ theme }) => theme.borders.card};
+  border-radius: ${({ theme }) => theme.radii.infinite};
 `;
 
 const CardNavLink = props => (

@@ -24,6 +24,7 @@ const colors = {
   reds,
   greens,
   blues,
+  lightRed: reds[2],
   red: reds[5],
   green: greens[5],
   blue: blues[5],
@@ -72,7 +73,10 @@ const shadows = {
   large: shadowPrimitives[6],
   xlarge: shadowPrimitives[8],
 };
-const borders = {};
+const borders = {
+  card: `1px solid ${colors.lightRed}`,
+  timeline: `1px solid ${colors.lightRed}`,
+};
 const borderWidths = [0, '1px'];
 const borderStyles = {};
 const radii = {

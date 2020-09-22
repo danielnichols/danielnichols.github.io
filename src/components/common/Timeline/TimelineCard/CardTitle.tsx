@@ -9,7 +9,7 @@ const TitleContainer = styled.div`
   text-align: left;
   width: inherit;
 
-  @media(max-width: ${props => props.theme.breakpoints[1]}) {
+  @media(max-width: ${({ theme }) => theme.breakpoints[1]}) {
     position: initial;
   }
 `;
