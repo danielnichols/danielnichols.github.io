@@ -11,33 +11,11 @@ import CardImage from './CardImage';
 import CardNavLink from './CardNavLink';
 import CardTitle from './CardTitle';
 
-/*
-  TODO:
-  - Card needs to render plain when just given children
-  - When given an image it needs to show it on the right side by default
-    - Needs to have options as to where the image is displayed, including left, right and maybe above
-    - Image should always show above on mobile width
-  - If given, navigation link needs to animate in, default on the right, but possibly on left instead
-    - Animation should be a "cutting" animation using a thin dotted line, and then physically separated from the rest of the card
-  - May need special handling of navigation link due to transition animation
-  - Text section needs a view more option for overflow text, instead of a scrollbar
-  - Needs an option for a title, possibly overlapping the image
-  - May want to split into multiple components in subfolder
-
-  - Card Container
-    - Card Body
-      - Title
-      - Content (LHD/vert Image)
-      - Image (LHD/vert Content)
-    - Nav Link
-*/
-
 // TODO: Proper card sizing
 
 const CardContainer = styled.div`
   display: flex;
   align-items: center;
-  /* filter: url(#timelineCardLinkDripAnimation); */
 `;
 
 const CardBody = styled(animated.div)`
@@ -89,11 +67,8 @@ const CardLinkEffectLinkBody = styled(animated.div)`
  */
 const TimelineCard = props => {
   const [titleRef, { height: titleHeight }] = useMeasure();
-  // HACK: react-spring typings don't seem to like this, even though it's in the docs... Remove as soon as the typings are fixed
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+
   const linkSpring = useSpring({
-    // delay: 6000,
     delay: 4000,
     config: { mass: 1, tension: 140, friction: 120 },
     margin: -52,
@@ -152,7 +127,6 @@ const TimelineCard = props => {
 
           </CardNavLink>
         </CardLinkBody>
-        {/* <div style={ { clear: 'both' } } /> */}
         <div />
       </CardContainer>
     </>
