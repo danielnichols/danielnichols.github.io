@@ -2,8 +2,8 @@ import React from 'react';
 import {
   animated, useSpring,
 } from 'react-spring';
-import { useMeasure } from 'react-use';
-import styled from 'styled-components';
+import { useMeasure, useMedia } from 'react-use';
+import styled, { ThemeContext } from 'styled-components';
 
 import CardBody, { CardBodyCutout } from './CardBody';
 import CardContent from './CardContent';
@@ -13,10 +13,13 @@ import CardNavLink, { CardLinkCutout } from './CardNavLink';
 import CardTitle from './CardTitle';
 
 // TODO: Proper card sizing
+// TODO: Responsive font sizing (not just cards tho)
 
 const CardContainer = styled.div`
-  display: flex;
   align-items: center;
+  @media(min-width: ${props => props.theme.breakpoints[1]}) {
+    display: flex;
+  }
 `;
 
 // FUTURE: In react-spring 9.0 replace animated.div with these
@@ -31,6 +34,8 @@ const AnimatedCardLinkCutout = animated(CardLinkCutout);
  */
 const TimelineCard = props => {
   const [titleRef, { height: titleHeight }] = useMeasure();
+  const theme = React.useContext(ThemeContext) as any;
+  const isMobile = useMedia(`(max-width: ${theme.breakpoints[1]})`);
 
   const linkSpring = useSpring({
     delay: 4000,
@@ -48,7 +53,7 @@ const TimelineCard = props => {
     <>
       <CardDripEffect>
         <AnimatedCardBodyCutout
-          style={ {
+          style={ isMobile ? {} : {
             marginLeft: linkSpring.margin.interpolate(val => val.valueOf() as number + 52),
           } }
         />
@@ -59,7 +64,7 @@ const TimelineCard = props => {
 
       <CardContainer>
         <animated.div
-          style={ {
+          style={ isMobile ? {} : {
             marginLeft: linkSpring.margin.interpolate(val => val.valueOf() as number + 52),
           } }
         >
@@ -70,7 +75,7 @@ const TimelineCard = props => {
               {props.title}
             </CardTitle>
             {props.image && <CardImage image={ props.image } />}
-            <div style={ { height: `${titleHeight}px` } } />
+            {!isMobile && <div style={ { height: `${titleHeight}px` } } />}
             <CardContent>
               {props.content}
             </CardContent>

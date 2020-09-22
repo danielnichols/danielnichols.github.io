@@ -8,6 +8,10 @@ const TitleContainer = styled.div`
   padding-left: 6px;
   text-align: left;
   width: inherit;
+
+  @media(max-width: ${props => props.theme.breakpoints[1]}) {
+    position: initial;
+  }
 `;
 
 const CardTitle = props => (

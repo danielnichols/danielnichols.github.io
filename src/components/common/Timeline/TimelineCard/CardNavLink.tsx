@@ -14,6 +14,10 @@ const LinkWrapper = styled.div`
   background-color: white;
   border: 1px solid #ffaeae;
   border-radius: ${props => props.theme.radii.infinite};
+
+  @media(max-width: ${props => props.theme.breakpoints[1]}) {
+    display: none;
+  }
 `;
 
 const Arrow = styled(ArrowIcon)`

@@ -8,6 +8,8 @@ import styled from 'styled-components';
 
 import { CardDripFilter } from './TimelineCard/CardDripEffect';
 
+// TODO: Investigate reduced animations on mobile
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,7 +65,7 @@ const Timeline = props => {
     delay: 500,
     opacity: toggle ? 1 : 0, // In percent decimal
     offsetY: toggle ? 0 : 100, // In percent
-    maxHeight: '300px',
+    maxHeight: '3000px',
     from: {
       opacity: 0,
       offsetY: 100,
