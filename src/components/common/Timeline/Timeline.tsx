@@ -18,16 +18,15 @@ const Container = styled.div`
 
   &:before {
     content: '';
-    background: black;
-    width: 2px;
+    border: ${({ theme }) => theme.borders.timeline};
     height: ${props => props.lineHeight}px;
     position: absolute;
   }
 `;
 
 const Cap = styled.span`
-  border: 1px solid black;
-  width: 10px;
+  border: ${({ theme }) => theme.borders.timeline};
+  width: 20px;
   z-index: 1;
 `;
 
