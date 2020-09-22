@@ -1,9 +1,7 @@
-import { link } from 'fs';
-import { url } from 'inspector';
-
+// TODO: Refactor and probably extract components
 import React from 'react';
 import {
-  animated, useChain, useSpring,
+  animated, useSpring,
 } from 'react-spring';
 import { useMeasure } from 'react-use';
 import styled from 'styled-components';
@@ -39,7 +37,7 @@ import CardTitle from './CardTitle';
 const CardContainer = styled.div`
   display: flex;
   align-items: center;
-  filter: url(#timelineCardLinkDripAnimation);
+  /* filter: url(#timelineCardLinkDripAnimation); */
 `;
 
 const CardBody = styled(animated.div)`
@@ -62,12 +60,34 @@ const CardLinkBody = styled(animated.div)`
   background-color: white;
 `;
 
+const CardLinkEffect = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: -1;
+  filter: url(#timelineCardLinkDripAnimation);
+  overflow: hidden;
+`;
+const CardLinkEffectBody = styled(animated.div)`
+  height: 150px;
+  width: 953px;
+  border: 1px solid #ffaeae;
+  border-radius: ${props => props.theme.radii.large};
+  background-color: #ffaeae;
+`;
+const CardLinkEffectLinkBody = styled(animated.div)`
+  height: 50px;
+  width: 50px;
+  border: 1px solid #ffaeae;
+  border-radius: ${props => props.theme.radii.infinite};
+  background-color: #ffaeae;
+`;
+
 /**
  * Creates a card to be shown on the timeline view. Has multiple options including an image, navigation and vertical sections
  * @param props
  */
 const TimelineCard = props => {
-  const filterRef = React.useRef();
   const [titleRef, { height: titleHeight }] = useMeasure();
   // HACK: react-spring typings don't seem to like this, even though it's in the docs... Remove as soon as the typings are fixed
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -75,9 +95,7 @@ const TimelineCard = props => {
   const linkSpring = useSpring({
     // delay: 6000,
     delay: 4000,
-    // config: { mass: 1, tension: 170, friction: 26 }, // default
-    // config: { mass: 1, tension: 280, friction: 60 }, // slow
-    config: { mass: 1, tension: 280, friction: 120 }, // molasses
+    config: { mass: 1, tension: 140, friction: 120 },
     margin: -52,
     to: {
       margin: 20,
@@ -104,7 +122,13 @@ const TimelineCard = props => {
           <feBlend in="SourceGraphic" in2="aab" />
         </filter>
       </svg>
-      <CardContainer filterRef={ filterRef }>
+      <CardLinkEffect>
+        <CardLinkEffectBody
+          style={ { marginLeft: linkSpring.margin.interpolate(val => val.valueOf() as number + 52) } }
+        />
+        <CardLinkEffectLinkBody style={ { marginLeft: linkSpring.margin } } />
+      </CardLinkEffect>
+      <CardContainer>
         <CardBody
           style={ { marginLeft: linkSpring.margin.interpolate(val => val.valueOf() as number + 52) } }
         >
