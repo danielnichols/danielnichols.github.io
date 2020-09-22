@@ -1,5 +1,5 @@
 import React from 'react';
-import Truncate from 'react-truncate';
+// import Truncate from 'react-truncate';
 import styled from 'styled-components';
 
 import { Text } from '~components/common/Text';
@@ -10,10 +10,12 @@ const ContentContainer = styled.div`
   display: flex;
 `;
 
+// FIXME: Truncate causes issues on window resize (both w and h)
+
 const CardContent = props => (
   <ContentContainer>
     <Text preset="paragraph">
-      <Truncate
+      {/* <Truncate
         lines={ 4 }
         ellipsis={ (
           <span>
@@ -21,9 +23,9 @@ const CardContent = props => (
             Keep Reading...
           </span>
       ) }
-      >
-        {props.children}
-      </Truncate>
+      > */}
+      {props.children}
+      {/* </Truncate> */}
     </Text>
   </ContentContainer>
 );
