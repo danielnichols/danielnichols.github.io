@@ -39,7 +39,7 @@ const TimelineCard = props => {
 
   const linkSpring = useSpring({
     delay: 4000,
-    config: { mass: 1, tension: 140, friction: 120 },
+    config: { mass: 1, tension: 280, friction: 120 },
     margin: -52,
     to: {
       margin: 20,
@@ -54,7 +54,8 @@ const TimelineCard = props => {
       <CardDripEffect>
         <AnimatedCardBodyCutout
           style={ isMobile ? {} : {
-            marginLeft: linkSpring.margin.interpolate(val => val.valueOf() as number + 52),
+            marginLeft: linkSpring.margin
+              .interpolate(val => val.valueOf() as number + 52),
           } }
         />
         <AnimatedCardLinkCutout
@@ -65,7 +66,8 @@ const TimelineCard = props => {
       <CardContainer>
         <animated.div
           style={ isMobile ? {} : {
-            marginLeft: linkSpring.margin.interpolate(val => val.valueOf() as number + 52),
+            marginLeft: linkSpring.margin
+              .interpolate(val => val.valueOf() as number + 52),
           } }
         >
           <CardBody>
