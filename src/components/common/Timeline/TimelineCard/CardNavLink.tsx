@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as ArrowIcon } from './angle-right-solid.svg';
+import { ReactComponent as ArrowIcon } from './angle-right-outline.svg';
 
 const LinkContainer = styled.div`
   display: flex;
