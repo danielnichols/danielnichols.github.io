@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+import { Text } from '~components/common/Text';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import BackgroundImage from '~assets/backgrounds/diagonal_striped_brick.png?size=2000';
@@ -26,7 +28,6 @@ const Header = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
   color: #b84747;
   background: url(${BackgroundImage.src});
   background-color: ${({ theme }) => theme.colors.reds[1]};
@@ -36,14 +37,14 @@ const Header = styled.header`
 
 const ComingSoon = () => (
   <Header>
-    <h1>
+    <Text preset="title" align="center">
       Coming Soon
-    </h1>
-    <p>
+    </Text>
+    <Text preset="subtitle" align="center">
       See progress on
       {' '}
       <Link href="https://github.com/danielnichols/danielnichols.github.io">Github</Link>
-    </p>
+    </Text>
   </Header>
 );
 
