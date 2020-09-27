@@ -4,6 +4,8 @@ import {
 } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
+import { Text } from '~components/common/Text';
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import BackgroundImage from '~assets/backgrounds/diagonal_striped_brick.png?size=2000';
@@ -39,8 +41,12 @@ const Header = styled.header`
 
 const PageNotFound = () => (
   <Header>
-    <h1>Uh Oh, Page not found</h1>
-    <Link to="/">Return to homepage</Link>
+    <Text preset="title" align="center">Uh Oh, Page not found</Text>
+    <Link to="/">
+      <Text preset="subtitle" align="center">
+        Return to homepage
+      </Text>
+    </Link>
   </Header>
 );
 
