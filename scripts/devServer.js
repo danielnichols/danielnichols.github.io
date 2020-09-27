@@ -55,7 +55,7 @@ const watch = async () => {
   if (!isDev)serverOpts.hot = false;
 
   const server = new WebpackDevServer(webpack(opts), serverOpts);
-  server.listen(port, 'localhost', err => {
+  server.listen(port, '0.0.0.0', err => {
     if (err) {
       console.error(err);
     }
