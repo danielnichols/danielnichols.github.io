@@ -16,6 +16,7 @@ module.exports = merge(baseConfig.base, {
   output: {
     filename: 'static/js/[name].[contenthash].js',
     chunkFilename: 'static/js/[name].[contenthash].chunk.js',
+    crossOriginLoading: 'anonymous',
   },
   module: {
     rules: [
