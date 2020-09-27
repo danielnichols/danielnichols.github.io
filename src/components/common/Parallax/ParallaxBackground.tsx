@@ -37,7 +37,7 @@ const ParallaxBackground: React.FC<ParallaxBackgroundProps> = props => {
   }, [scrollY, setSpring]);
 
   return (
-    <div>
+    <>
       <Background
         backgroundURL={ props.backgroundURL }
         height={ contentHeight }
@@ -48,7 +48,7 @@ const ParallaxBackground: React.FC<ParallaxBackgroundProps> = props => {
       <ContentContainer ref={ ref }>
         {props.children}
       </ContentContainer>
-    </div>
+    </>
   );
 };
 
