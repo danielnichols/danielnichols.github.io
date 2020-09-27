@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TextWrapper = styled.div(({ theme, preset }) => theme.textPresets[preset]);
+const TextWrapper = styled.div(({ theme, preset, rest: props }) => {
+  // TODO: Ensure styles override preset
+  const styles = {
+    color: props.color,
+    textAlign: props.align,
+  };
+  return Object.assign(styles, theme.textPresets[preset]);
+});
 
 type Preset = 'title' | 'subtitle' | 'sectionHeading' | 'sectionSubheading' | 'imageCaption' | 'paragraph' | 'button';
 
@@ -32,11 +39,12 @@ export interface TextProps {
 }
 
 const Text: React.FC<TextProps> = props => {
-  const finalPreset = presetAliases[props.preset] || props.preset || 'paragraph';
-  const WrapperType = props.wrapper || presetWrapperTypes[finalPreset] || 'span';
+  const { preset, wrapper, ...rest } = props;
+  const finalPreset = presetAliases[preset] || preset || 'paragraph';
+  const WrapperType = wrapper || presetWrapperTypes[finalPreset] || 'span';
 
   return (
-    <TextWrapper as={ WrapperType } preset={ finalPreset }>
+    <TextWrapper as={ WrapperType } preset={ finalPreset } rest={ rest }>
       {props.children}
     </TextWrapper>
   );
