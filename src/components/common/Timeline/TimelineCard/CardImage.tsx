@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Img = styled.img`
   object-fit: cover;
   width: 100%;
-  height: 30vh;
+  height: 25vh;
   overflow: hidden;
 
   @media(min-width: ${({ theme }) => theme.breakpoints[1]}) {
