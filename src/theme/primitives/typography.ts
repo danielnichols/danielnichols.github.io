@@ -1,13 +1,13 @@
 export default {
   fontSizes: [
-    14,
-    16,
-    18,
-    20,
-    24,
-    32,
-    40,
-    48,
+    '1.4rem',
+    '1.6rem',
+    '1.8rem',
+    '2.0rem',
+    '2.4rem',
+    '3.2rem',
+    '4.0rem',
+    '4.8rem',
   ],
   fontWeights: [
     '1',
