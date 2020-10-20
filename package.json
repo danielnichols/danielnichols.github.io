@@ -94,7 +94,7 @@
     "webpack-manifest-plugin": "^2.2.0",
     "webpack-merge": "^5.0.9",
     "webpack-strip-block": "^0.3.0",
-    "webpack-subresource-integrity": "^1.4.1",
+    "webpack-subresource-integrity": "^1.5.1",
     "webpackbar": "^4.0.0"
   },
   "resolutions": {
