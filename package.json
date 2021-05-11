@@ -8,7 +8,7 @@
   "dependencies": {
     "@babel/runtime": "^7.10.5",
     "core-js": "^3.6.5",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash-es": "^4.17.15",
     "p-min-delay": "^3.1.0",
     "polished": "^3.6.5",
